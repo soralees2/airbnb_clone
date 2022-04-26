@@ -23,12 +23,9 @@ const Main = () => {
           </div>
         </div>
       </section>
-      <section className="sec_idea">
-        <div className="container">
-          <h2>설레는 다음 여행을 위한 아이디어</h2>
+      <Idea>
           <AreaList />
-        </div>
-      </section>
+      </Idea>
       <section className="sec_exper">
         <div className="container">
           <h2>에어비앤비 체험 둘러보기</h2>
@@ -58,7 +55,20 @@ const Main = () => {
 
 export default Main;
 
-export const AreaList = () => {
+
+const Idea = ({ children }) => {
+  return(
+    <section className="sec_idea">
+      <div className="container">
+        <h2>설레는 다음 여행을 위한 아이디어</h2>
+        { children }
+      </div>
+    </section>
+  );
+}
+
+
+const AreaList = () => {
   const data = [
     { city: '서울', distance: '2km 거리', src: mainImg01 },
     { city: '인천', distance: '29km 거리', src: mainImg02 },
@@ -68,9 +78,9 @@ export const AreaList = () => {
   return (
     <div className="area_list">
       {
-        data.map((item) => {
+        data.map((item, idx) => {
           return(
-            <div className="area_card">
+            <div className="area_card" key={`${item.city}_${item.idx}`}>
               <img src={ item.src } alt="" />
               <div>
                 <h3>{ item.city }</h3>
