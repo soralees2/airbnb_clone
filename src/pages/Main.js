@@ -10,66 +10,46 @@ import sectionImg04_1 from '../styles/images/main/sectionImg04_1.png';
 const Main = () => {
   return (
     <>
-      <section className="sec_detail bg_black">
-        <div className="container">
-          <div className="box bg_pink">
-            <h2>10만 명에 달하는 우크라이나 피난민에게 임시 숙소를 제공해주세요</h2>
-            <a href="#" className="btn_white_line">자세히 알아보기</a>
-          </div>
+      <Section className="sec_detail bg_black">
+        <div className="box bg_pink">
+          <h2>10만 명에 달하는 우크라이나 피난민에게 임시 숙소를 제공해주세요</h2>
+          <a href="#" className="btn_white_line">자세히 알아보기</a>
         </div>
-      </section>
-      <section className="sec_search">
-        <div className="container">
-          <div className="txt_box" style={{ backgroundImage: `url(${sectionImg04_1})` }}>
-            <h2>호기심을 자극하는 숙소로 떠나보세요</h2>
-            <a href="#" className="btn_white_radius">유연한 검색</a>
-          </div>
+      </Section>
+      <Section className="sec_search">
+        <div className="txt_box" style={{ backgroundImage: `url(${sectionImg04_1})` }}>
+          <h2>호기심을 자극하는 숙소로 떠나보세요</h2>
+          <a href="#" className="btn_white_radius">유연한 검색</a>
         </div>
-      </section>
-      <Idea>
+      </Section>
+      <Section className="sec_idea">
+          <h2>설레는 다음 여행을 위한 아이디어</h2>
           <AreaList />
-      </Idea>
-      <section className="sec_exper">
-        <div className="container">
-          <h2>에어비앤비 체험 둘러보기</h2>
-          <div className="experience_list">
-            <div style={{ backgroundImage: `url(${sectionImg03_1})` }}>
-              <h3>여행 중 만나는 <br />이색적인 즐길거리</h3>
-              <a href="#" className="btn_normal">체험</a>
-            </div>
-            <div style={{ backgroundImage: `url(${sectionImg03_2})` }}>
-              <h3>집에서 만나는 <br />다양한 즐길거리</h3>
-              <a href="#" className="btn_normal">온라인 체험</a>
-            </div>
+      </Section>
+      <Section className="sec_exper">
+        <h2>에어비앤비 체험 둘러보기</h2>
+        <div className="experience_list">
+          <div style={{ backgroundImage: `url(${sectionImg03_1})` }}>
+            <h3>여행 중 만나는 <br />이색적인 즐길거리</h3>
+            <a href="#" className="btn_normal">체험</a>
+          </div>
+          <div style={{ backgroundImage: `url(${sectionImg03_2})` }}>
+            <h3>집에서 만나는 <br />다양한 즐길거리</h3>
+            <a href="#" className="btn_normal">온라인 체험</a>
           </div>
         </div>
-      </section>
-      <section className="sec_qna">
-        <div className="container">
-          <div className="txt_box" style={{ backgroundImage: `url(${sectionImg04_1})` }}>
-            <h2>호스팅에 관해<br />궁금하신 점이<br />있나요?</h2>
-            <a href="#" className="btn_normal">슈퍼호스트에게 물어보세요</a>
-          </div>
+      </Section>
+      <Section className="sec_qna">
+        <div className="txt_box" style={{ backgroundImage: `url(${sectionImg04_1})` }}>
+          <h2>호스팅에 관해<br />궁금하신 점이<br />있나요?</h2>
+          <a href="#" className="btn_normal">슈퍼호스트에게 물어보세요</a>
         </div>
-      </section>
+      </Section>
     </>
   )
 }
 
 export default Main;
-
-
-const Idea = ({ children }) => {
-  return(
-    <section className="sec_idea">
-      <div className="container">
-        <h2>설레는 다음 여행을 위한 아이디어</h2>
-        { children }
-      </div>
-    </section>
-  );
-}
-
 
 const AreaList = () => {
   const data = [
@@ -94,5 +74,15 @@ const AreaList = () => {
         })
       }
     </div>
+  )
+}
+
+const Section = ({className, children}) => {
+  return(
+    <section className={className}>
+      <div className="container">
+        { children }
+      </div>
+    </section>
   )
 }

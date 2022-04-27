@@ -6,29 +6,7 @@ const Footer = () => {
     <footer>
       <div class="container">
         <FooterTop  />
-        <div class="footer_bottom">
-          <div class="info">
-            <span>&copy; 2022 Airbnb, Inc.</span>
-            <i class="global"></i>
-            <a href="#">한국어</a>
-            <i class="money"></i>
-            <a href="#">KRW</a>
-          </div>
-          <div class="sns">
-            <i class="facebook"></i>
-            <i class="twitter"></i>
-            <i class="instagram"></i>
-            <i class="naver_blog"></i>
-            <i class="naver_post"></i>
-          </div>
-          <ul>
-            <li><a href="#">개인정보 처리방침</a></li>
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">사이트맵</a></li>
-            <li><a href="#">한국의 변경된 환불 정책</a></li>
-            <li><a href="#">회사 세부정보</a></li>
-          </ul>
-        </div>
+        <FooterBottom />
       </div>
     </footer>
   );
@@ -113,6 +91,43 @@ const List = ({ colNum }) => {
           colData.contents.map((item) => {
             return(
               <li key={item}>{ item }</li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  )
+}
+
+const FooterBottom = () => {
+  const data = [
+    '개인정보 처리방침',
+    '이용약관',
+    '사이트맵',
+    '한국의 변경된 환불 정책',
+    '회사 세부정보',
+  ];
+  return(
+    <div class="footer_bottom">
+      <div class="info">
+        <span>&copy; 2022 Airbnb, Inc.</span>
+        <i class="global"></i>
+        <a href="#">한국어</a>
+        <i class="money"></i>
+        <a href="#">KRW</a>
+      </div>
+      <div class="sns">
+        <i class="facebook"></i>
+        <i class="twitter"></i>
+        <i class="instagram"></i>
+        <i class="naver_blog"></i>
+        <i class="naver_post"></i>
+      </div>
+      <ul>
+        {
+          data.map((item) => {
+            return(
+              <li><a href="#">{item}</a></li>
             )
           })
         }
