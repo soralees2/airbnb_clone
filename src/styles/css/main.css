@@ -162,13 +162,11 @@
   color: #fff;
   padding: 5.714286rem;
 }
-.experience_list > div:first-of-type {
-  /* background: url(../images/sectionImg03_1.png) 50% 50% no-repeat; */
-  background-size: cover;
-}
+.experience_list > div:first-of-type,
 .experience_list > div:nth-of-type(2) {
-  /* background: url(../images/sectionImg03_2.png) 50% 50% no-repeat; */
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 .experience_list > div:after {
   display: flex;
@@ -185,8 +183,9 @@
 }
 .sec_qna .txt_box {
   padding: 5.714286rem;
-  /* background: url(../images/sectionImg04_1.png) 50% 50% no-repeat; */
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   border-radius: 1.785714rem;
   color: #fff;
   font-weight: 600;

@@ -1,8 +1,11 @@
 import React from 'react'
-import mainImg01 from '../styles/images/main/sectionImg02_1.png';
-import mainImg02 from '../styles/images/main/sectionImg02_2.png';
-import mainImg03 from '../styles/images/main/sectionImg02_3.png';
-import mainImg04 from '../styles/images/main/sectionImg02_4.png';
+import sectionImg02_1 from '../styles/images/main/sectionImg02_1.png';
+import sectionImg02_2 from '../styles/images/main/sectionImg02_2.png';
+import sectionImg02_3 from '../styles/images/main/sectionImg02_3.png';
+import sectionImg02_4 from '../styles/images/main/sectionImg02_4.png';
+import sectionImg03_1 from '../styles/images/main/sectionImg03_1.png';
+import sectionImg03_2 from '../styles/images/main/sectionImg03_2.png';
+import sectionImg04_1 from '../styles/images/main/sectionImg04_1.png';
 
 const Main = () => {
   return (
@@ -17,7 +20,7 @@ const Main = () => {
       </section>
       <section className="sec_search">
         <div className="container">
-          <div className="txt_box">
+          <div className="txt_box" style={{ backgroundImage: `url(${sectionImg04_1})` }}>
             <h2>호기심을 자극하는 숙소로 떠나보세요</h2>
             <a href="#" className="btn_white_radius">유연한 검색</a>
           </div>
@@ -30,11 +33,11 @@ const Main = () => {
         <div className="container">
           <h2>에어비앤비 체험 둘러보기</h2>
           <div className="experience_list">
-            <div>
+            <div style={{ backgroundImage: `url(${sectionImg03_1})` }}>
               <h3>여행 중 만나는 <br />이색적인 즐길거리</h3>
               <a href="#" className="btn_normal">체험</a>
             </div>
-            <div>
+            <div style={{ backgroundImage: `url(${sectionImg03_2})` }}>
               <h3>집에서 만나는 <br />다양한 즐길거리</h3>
               <a href="#" className="btn_normal">온라인 체험</a>
             </div>
@@ -43,7 +46,7 @@ const Main = () => {
       </section>
       <section className="sec_qna">
         <div className="container">
-          <div className="txt_box">
+          <div className="txt_box" style={{ backgroundImage: `url(${sectionImg04_1})` }}>
             <h2>호스팅에 관해<br />궁금하신 점이<br />있나요?</h2>
             <a href="#" className="btn_normal">슈퍼호스트에게 물어보세요</a>
           </div>
@@ -70,10 +73,10 @@ const Idea = ({ children }) => {
 
 const AreaList = () => {
   const data = [
-    { city: '서울', distance: '2km 거리', src: mainImg01 },
-    { city: '인천', distance: '29km 거리', src: mainImg02 },
-    { city: '대구', distance: '237km 거리', src: mainImg03 },
-    { city: '대전', distance: '140km 거리', src: mainImg04 },
+    { city: '서울', distance: '2km 거리', src: sectionImg02_1 },
+    { city: '인천', distance: '29km 거리', src: sectionImg02_2 },
+    { city: '대구', distance: '237km 거리', src: sectionImg02_3 },
+    { city: '대전', distance: '140km 거리', src: sectionImg02_4 },
   ];
   return (
     <div className="area_list">
