@@ -23,8 +23,8 @@ const Main = () => {
         </div>
       </Section>
       <Section className="sec_idea">
-          <h2>설레는 다음 여행을 위한 아이디어</h2>
-          <AreaList />
+        <h2>설레는 다음 여행을 위한 아이디어</h2>
+        <AreaList />
       </Section>
       <Section className="sec_exper">
         <h2>에어비앤비 체험 둘러보기</h2>
@@ -62,12 +62,12 @@ const AreaList = () => {
     <div className="area_list">
       {
         data.map((item, idx) => {
-          return(
+          return (
             <div className="area_card" key={`${item.city}_${item.idx}`}>
-              <img src={ item.src } alt="" />
+              <img src={item.src} alt="" />
               <div>
-                <h3>{ item.city }</h3>
-                <p>{ item.distance }</p>
+                <h3>{item.city}</h3>
+                <p>{item.distance}</p>
               </div>
             </div>
           )
@@ -77,11 +77,16 @@ const AreaList = () => {
   )
 }
 
-const Section = ({className, children}) => {
-  return(
+/* 
+  Section에 className을 줘도 section태그에 스타일이 입혀지지 않았던 이유
+  -> section태그를 호출한게 아니라 우리는 Section이라는 상수를 호출한것이기 때문에 
+     태그 자체에 클래스가 적용되지 않음. props로 내려받은 후 태그에 적용해주니 적용됨!
+ */
+const Section = ({ className, children }) => {
+  return (
     <section className={className}>
       <div className="container">
-        { children }
+        {children}
       </div>
     </section>
   )
