@@ -1,7 +1,7 @@
 import React from 'react'
 import Main from './Main';
 
-const Contents = () => {
+const Container = () => {
   return (
     <div className="contents">
       <Main />
@@ -9,4 +9,4 @@ const Contents = () => {
   )
 }
 
-export default Contents;
+export default Container;
