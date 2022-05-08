@@ -57,6 +57,17 @@ const Utils = () => {
         <button type="button" className="person">
           <BiUser />
         </button>
+        <div className="dialog">
+          <div className="member">
+            <a href="#">회원가입</a>
+            <a href="#">로그인</a>
+          </div>
+          <div>
+            <a href="#">숙소 호스트 되기</a>
+            <a href="#">체험 호스팅하기</a>
+            <a href="#">도움말</a>
+          </div>
+        </div>
       </div>
     </div>
   )
