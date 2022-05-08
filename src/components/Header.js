@@ -44,6 +44,14 @@ const Search = () => {
 }
 
 const Utils = () => {
+  
+  const [ showResult, setShowResult ] = React.useState(false);
+
+  const openDialog = () =>  setShowResult(true);
+  
+  const hideDialog = () => setShowResult(false);
+  
+  console.log(showResult);
   return (
     <div className="utils">
       <button type="button" className="btn_host">호스트되기</button>
@@ -54,20 +62,25 @@ const Utils = () => {
         <button type="button" className="hamburger">
           <BiMenu />
         </button>
-        <button type="button" className="person">
+        <button type="button" className="person" onClick={ openDialog } onBlur={ hideDialog }>
           <BiUser />
         </button>
-        <div className="dialog">
-          <div className="member">
-            <a href="#">회원가입</a>
-            <a href="#">로그인</a>
-          </div>
-          <div>
-            <a href="#">숙소 호스트 되기</a>
-            <a href="#">체험 호스팅하기</a>
-            <a href="#">도움말</a>
-          </div>
-        </div>
+        {
+          showResult ? (
+            <div className="dialog">
+              <div className="member">
+                <a href="#">회원가입</a>
+                <a href="#">로그인</a>
+              </div>
+              <div>
+                <a href="#">숙소 호스트 되기</a>
+                <a href="#">체험 호스팅하기</a>
+                <a href="#">도움말</a>
+              </div>
+            </div>
+          ) : null
+        }
+        
       </div>
     </div>
   )
