@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BiSearch, BiGlobe, BiMenu, BiUser } from "react-icons/bi";
+import GlobalModal from '../pages/GlobalModal';
 
 const Header = () => {
+  const [showGlobalModal, setShowGlobalModal] = useState(false);
+
   return (
     <header>
       <div className="container">
         <Logo />
         <Search />
-        <Utils />
+        <Utils setShowGlobalModal={ setShowGlobalModal }/>
+        {
+          showGlobalModal ? <GlobalModal setShowGlobalModal={ setShowGlobalModal }/> : null
+        }
       </div>
     </header>
   );
@@ -43,19 +49,20 @@ const Search = () => {
   )
 }
 
-const Utils = () => {
+const Utils = ({ setShowGlobalModal }) => {
   
   const [ showResult, setShowResult ] = React.useState(false);
 
   const openDialog = () =>  setShowResult(true);
   
   const hideDialog = () => setShowResult(false);
+
+  const openModal = () => { setShowGlobalModal(true) }
   
-  console.log(showResult);
   return (
     <div className="utils">
       <button type="button" className="btn_host">호스트되기</button>
-      <button type="button" className="btn_language">
+      <button type="button" className="btn_language" onClick={ openModal }>
         <BiGlobe />
       </button>
       <div className="menu">

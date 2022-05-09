@@ -2,7 +2,7 @@ import React from 'react'
 import { BsTranslate } from "react-icons/bs";
 import { BiX } from "react-icons/bi";
 
-const GlobalModal = () => {
+const GlobalModal = ({ setShowGlobalModal }) => {
   const local_language = [
     { country : "한국어", language: "대한민국" },
     { country : "Azərbaycan dili", language: "Azərbaycan" },
@@ -94,49 +94,57 @@ const GlobalModal = () => {
     { country : "繁體中文", language: "香港" },
     { country : "繁體中文", language: "台灣" },
   ];
+
+  const hideModal = () => { setShowGlobalModal(false) };
+
   return (
     <div className="global_modal">
       <div className="modal_header">
-        <button type="button" className="btn_close"><BiX /></button>
+        <button type="button" className="btn_close" onClick={ hideModal }><BiX /></button>
       </div>
       <div className="modal_contents">
         <div className="line_tab">
-          <div className="tab_item">
+          <div className="tab_item active">
             <button className="btn_gray_hover focus">언어와 지역</button>
           </div>
           <div className="tab_item">
             <button className="btn_gray_hover">통화</button>
           </div>
         </div>
-        <div className="translation">
-          <strong>번역 <BsTranslate /></strong>
-          <button>on/off</button>
+        <section className="translation">
+          <strong>번역 <BsTranslate className="icon" /></strong>
+          <button className="btn_onoff">on/off</button>
           <p>설명과 후기가 한국어로 자동 번역됩니다.</p>
-        </div>
-        <h2 className="title">추천 언어 및 지역</h2>
-        <div className="recommend_location">
-          <button className="btn_gray_hover">
-            <b>English</b>
-            <span>United States</span>
-          </button>
-          <button className="btn_gray_hover">
-            <b>English</b>
-            <span>United Kingdom</span>
-          </button>
-        </div>
-        <h2 className="title">언어와 지역을 선택하요</h2>
-        <div className="btns_wrap">
-          {
-            local_language.map((item, idx) => {
-              return(
-                <button className={ idx === 0 ? `btn_gray_hover btn_border_black` : `btn_gray_hover`} key={ `${item}_${idx}`}>
-                  <b>{ item.country }</b>
-                  <span>{ item.language }</span>
-                </button>
-              )
-            })
-          }
-        </div>
+        </section>
+        <section>
+          <h2 className="title">추천 언어 및 지역</h2>
+          <div className="recommend_location">
+            <button className="btn_gray_hover">
+              <b>English</b>
+              <span>United States</span>
+            </button>
+            <button className="btn_gray_hover">
+              <b>English</b>
+              <span>United Kingdom</span>
+            </button>
+          </div>
+        </section>
+        <section>
+          <h2 className="title">언어와 지역을 선택하요</h2>
+          <div className="btns_wrap">
+            {
+              local_language.map((item, idx) => {
+                return(
+                  <button type="button" className={ idx === 0 ? `btn_gray_hover btn_border_black` : `btn_gray_hover`} key={ `${item}_${idx}`}>
+                    <b>{ item.country }</b>
+                    <span>{ item.language }</span>
+                  </button>
+                )
+              })
+            }
+          </div>
+
+        </section>
       </div>
     </div>
   )

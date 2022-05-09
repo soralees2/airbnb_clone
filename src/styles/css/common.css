@@ -64,7 +64,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
+button {
+  cursor: pointer;
+}
 ul,
 li,
 dl,
@@ -128,7 +130,6 @@ header button.btn_search {
   border-radius: 50%;
   background-color: #ff385c;
   font-size: 0;
-  cursor: pointer;
 }
 header button.btn_search > * {
   color: #fff;
@@ -174,7 +175,6 @@ header .utils > .menu:hover {
 header .utils > .menu button {
   background-color: #fff;
   border: none;
-  cursor: pointer;
 }
 header .utils .menu button > * {
   font-size: 2.142857rem;
@@ -283,7 +283,7 @@ footer .footer_bottom ul {
 }
 .btn_gray_hover {
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   padding: 18px;
   line-height: 18px;
@@ -330,13 +330,26 @@ footer .footer_bottom ul {
 }
 .line_tab {
   display: flex;
+  width: 100%;
+  position: relative;
+}
+.line_tab:after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
 }
 .line_tab .tab_item {
   position: relative;
 }
 .line_tab .tab_item .btn_gray_hover {
-  padding: 5px 12px;
+  padding: 8px 12px;
 }
+.line_tab .tab_item.active::after,
 .line_tab .tab_item:hover::after {
   position: absolute;
   left: 10%;
@@ -347,7 +360,31 @@ footer .footer_bottom ul {
   background-color: #000;
   content: '';
 }
-
+.modal_contents .translation {
+  display: inline-block;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+}
+.modal_contents .translation strong {
+  font-size: 16px;
+}
+.modal_contents .translation strong .icon {
+  font-size: 24px;
+  position: relative;
+  top: 4px;
+}
+.modal_contents .translation p {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+.modal_contents .translation .btn_onoff {
+  position: absolute;
+  right: 12px;
+  top: 16px;
+}
 .recommend_location .btn_gray_hover,
 .modal_contents .btns_wrap .btn_gray_hover {
   text-align: left;
@@ -362,9 +399,12 @@ footer .footer_bottom ul {
 .modal_contents .btns_wrap .btn_gray_hover span {
   color: #717171;
 }
+.modal_contents section {
+  margin-top: 24px;
+  padding-bottom: 18px;
+}
 .modal_contents .title {
-  margin-top: 30px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 .recommend_location,
 .modal_contents .btns_wrap {
