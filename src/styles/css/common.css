@@ -75,6 +75,7 @@ dd {
   list-style: none;
 }
 
+/*** header layout ***/
 header {
   position: fixed;
   top: 0;
@@ -86,8 +87,9 @@ header {
   /* overflow: hidden; */
   z-index: 9999;
 }
-
-/*** header layout ***/
+header.active {
+  background-color: transparent;
+}
 header .container {
   display: flex;
   height: 100%;
@@ -135,16 +137,107 @@ header button.btn_search > * {
   color: #fff;
   font-size: 1rem;
 }
+header .searh_type_list {
+  height: 100%;
+}
+header .searh_type_list ul {
+  width: 200px;
+  margin: auto;
+  display: flex;
+  height: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-between;
+}
+header .searh_type_list ul li {
+  position: relative;
+  color: #fff;
+}
+header .searh_type_list ul li.active::after {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+header .search_detail {
+  width: 100%;
+  height: 66px;
+}
+header .search_detail .container {
+  background-color: #fff;
+  width: 60%;
+  height: 100%;
+  position: relative;
+  border-radius: 32px;
+}
+header .search_detail .container .btn_search {
+  width: 40px;
+  height: 40px;
+  top: 13px;
+  right: 13px;
+}
+header .search_detail .container .btn_search > * {
+  font-size: 20px;
+}
+header .search_detail .container .search_type {
+  width: 100%;
+  display: flex;
+}
+header .search_type .hover_bg_gray {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+header .search_type .hover_bg_gray b {
+  font-size: 12px;
+}
+header .search_type .hover_bg_gray p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #666;
+  margin-top: 3px;
+}
+header .search_type .location {
+  flex: 1;
+  padding: 14px 32px;
+  border-radius: 32px;
+}
+header .search_type .checkin {
+  flex: 0.5;
+  padding: 14px 24px;
+  border-radius: 32px;
+}
+header .search_type .checkout {
+  flex: 0.5;
+  padding: 14px 24px;
+  border-radius: 32px;
+}
+header .search_type .personnel {
+  flex: 1;
+  padding: 14px 63px 14px 32px;
+  border-radius: 32px;
+}
+header .search_type.experience .checkin {
+  flex: 1 !important;
+  padding: 14px 32px 14px 32px !important;
+}
 header .utils {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: #fff;
 }
 header .utils > .btn_host,
 header .utils > .btn_language {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: inherit;
 }
 header .utils > .btn_host {
   border-radius: 40px;
@@ -166,6 +259,7 @@ header .utils > .menu {
   margin-left: 10px;
   border-radius: 40px;
   border: 1px solid #ccc;
+  background-color: #fff;
   padding: 4px 15px;
 }
 header .utils > .menu:hover {
@@ -173,7 +267,7 @@ header .utils > .menu:hover {
   box-shadow: 3px 3px 3px rgba(34, 34, 34, 0.2);
 }
 header .utils > .menu button {
-  background-color: #fff;
+  background-color: transparent;
   border: none;
 }
 header .utils .menu button > * {
@@ -190,7 +284,9 @@ header .utils > .menu .dialog {
   right: 0;
   font-size: 1rem;
   width: 240px;
+  color: #000;
   box-shadow: 0px -3px 10px rgb(34 34 34 / 10%);
+  z-index: 9999;
 }
 header .utils > .menu .dialog a {
   display: block;
@@ -235,8 +331,6 @@ footer .footer_bottom {
 }
 footer .footer_bottom .info > * {
   margin-right: 1.357143rem;
-}
-footer .footer_bottom .sns {
 }
 footer .footer_bottom ul {
   display: flex;
@@ -293,6 +387,9 @@ footer .footer_bottom ul {
 }
 .btn_border_black {
   border: 1px solid #000 !important;
+}
+.hover_bg_gray:hover {
+  background-color: rgb(235, 235, 235);
 }
 /* Global Modal */
 .global_modal {

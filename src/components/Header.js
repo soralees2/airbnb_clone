@@ -1,20 +1,99 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BiSearch, BiGlobe, BiMenu, BiUser } from "react-icons/bi";
 import GlobalModal from '../pages/GlobalModal';
 
-const Header = () => {
+const Header = ({ scrollTop }) => {
   const [showGlobalModal, setShowGlobalModal] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [tabMenu, setTabMenu] = useState('stay');
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleClick = (param) => {
+    console.log(param);
+    setTabMenu(param);
+  }
+
 
   return (
-    <header>
+    <header className={ scrollPosition === 0 ? 'active' : null }>
       <div className="container">
         <Logo />
-        <Search />
+        { 
+          scrollPosition === 0 ? (
+            <div className="searh_type_list">
+              <ul>
+                <li className="stays active">
+                  <a href="#">숙소</a>
+                </li>
+                <li className="experience">
+                  <a href="#">체험</a>
+                </li>
+                <li className="online_experience">
+                  <a href="#">온라인 체험</a>
+                </li>
+              </ul>
+            </div>
+          ) : <Search />
+        }
         <Utils setShowGlobalModal={ setShowGlobalModal }/>
         {
           showGlobalModal ? <GlobalModal setShowGlobalModal={ setShowGlobalModal }/> : null
         }
       </div>
+      { scrollPosition === 0 ? (
+        <div>
+          <div className="search_detail">
+            <div className="container">
+              { tabMenu === 'stay' ? (
+                <div className="search_type stay" >
+                  <div className="location hover_bg_gray">
+                    <b>위치</b>
+                    <p>어디로 여행가세요?</p>
+                  </div>
+                  <div className="checkin hover_bg_gray">
+                    <b>체크인</b>
+                    <p>날짜 입력</p>
+                  </div>
+                  <div className="checkout hover_bg_gray">
+                    <b>체크아웃</b>
+                    <p>날짜 입력</p>
+                  </div>
+                  <div className="personnel hover_bg_gray">
+                    <b>인원</b>
+                    <p>게스트 추가</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="search_type experience" style={{ display: 'none' }}>
+                  <div className="location hover_bg_gray">
+                    <b>위치</b>
+                    <p>어디로 여행가세요?</p>
+                  </div>
+                  <div className="checkin hover_bg_gray">
+                    <b>날짜</b>
+                    <p>원하는 날짜를 입력하세요.</p>
+                  </div>
+                </div>
+              )}
+              <button type="button" className="btn_search">
+                <BiSearch />
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null }
     </header>
   );
 }
@@ -41,8 +120,8 @@ const Search = () => {
         <div className="input">
           <input type="text" placeholder="검색 시작하기" />
           <button type="button" className="btn_search">
-              <BiSearch />
-            </button>
+            <BiSearch />
+          </button>
         </div>
       </div>
     </div>
