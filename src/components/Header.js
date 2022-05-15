@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { BiSearch, BiGlobe, BiMenu, BiUser } from "react-icons/bi";
 import GlobalModal from '../pages/GlobalModal';
 
-const Header = ({ scrollTop }) => {
+const Header =  () => {
   const [showGlobalModal, setShowGlobalModal] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [tabMenu, setTabMenu] = useState('stay');
+  const [menuActive, setMenuActive] = useState('stay');
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -13,18 +14,19 @@ const Header = ({ scrollTop }) => {
   };
 
   useEffect(() => {
+    /* didmount */
     window.addEventListener("scroll", handleScroll);
 
+    /* umnount */
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const handleClick = (param) => {
-    console.log(param);
     setTabMenu(param);
+    setMenuActive(param);
   }
-
 
   return (
     <header className={ scrollPosition === 0 ? 'active' : null }>
@@ -34,10 +36,10 @@ const Header = ({ scrollTop }) => {
           scrollPosition === 0 ? (
             <div className="searh_type_list">
               <ul>
-                <li className="stays active">
+                <li className={ menuActive === 'stay' ? 'stay active' : 'stay'} onClick={() => handleClick('stay') }>
                   <a href="#">숙소</a>
                 </li>
-                <li className="experience">
+                <li className={ menuActive === 'experience' ? 'experience active' : 'experience' } onClick={()=> handleClick('experience') }>
                   <a href="#">체험</a>
                 </li>
                 <li className="online_experience">
@@ -76,7 +78,7 @@ const Header = ({ scrollTop }) => {
                   </div>
                 </div>
               ) : (
-                <div className="search_type experience" style={{ display: 'none' }}>
+                <div className="search_type experience">
                   <div className="location hover_bg_gray">
                     <b>위치</b>
                     <p>어디로 여행가세요?</p>
