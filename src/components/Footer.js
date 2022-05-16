@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-      <div className="container">
+      <div className='container'>
         <FooterTop  />
         <FooterBottom />
       </div>
@@ -15,7 +15,7 @@ export default Footer;
 
 const FooterTop = () => {
   return (
-      <div className="footer_top">
+      <div className='footer_top'>
         <List colNum={ 1 }/>
         <List colNum={ 2 }/>
         <List colNum={ 3 }/>
@@ -108,26 +108,26 @@ const FooterBottom = () => {
     '회사 세부정보',
   ];
   return(
-    <div className="footer_bottom">
-      <div className="info">
+    <div className='footer_bottom'>
+      <div className='info'>
         <span>&copy; 2022 Airbnb, Inc.</span>
-        <i className="global"></i>
-        <a href="#">한국어</a>
-        <i className="money"></i>
-        <a href="#">KRW</a>
+        <i className='global'></i>
+        <a href='#'>한국어</a>
+        <i className='money'></i>
+        <a href='#'>KRW</a>
       </div>
-      <div className="sns">
-        <i className="facebook"></i>
-        <i className="twitter"></i>
-        <i className="instagram"></i>
-        <i className="naver_blog"></i>
-        <i className="naver_post"></i>
+      <div className='sns'>
+        <i className='facebook'></i>
+        <i className='twitter'></i>
+        <i className='instagram'></i>
+        <i className='naver_blog'></i>
+        <i className='naver_post'></i>
       </div>
       <ul>
         {
           data.map((item, idx) => {
             return(
-              <li key={ `${idx}_key` }><a href="#">{item}</a></li>
+              <li key={ `${idx}_key` }><a href='#'>{item}</a></li>
             )
           })
         }

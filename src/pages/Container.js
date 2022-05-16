@@ -3,7 +3,7 @@ import Main from './Main';
 
 const Container = () => {
   return (
-    <div className="contents">
+    <div className='contents'>
       <Main />
     </div>
   )
