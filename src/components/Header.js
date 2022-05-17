@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BiSearch, BiGlobe, BiMenu, BiUser } from 'react-icons/bi';
 import GlobalModal from '../pages/GlobalModal';
 import LoginModal from '../pages/LoginModal';
+import { Link } from 'react-router-dom';
 
 const Header =  () => {
   const [showGlobalModal, setShowGlobalModal] = useState(false);
@@ -39,13 +40,14 @@ const Header =  () => {
             <div className='searh_type_list'>
               <ul>
                 <li className={ menuActive === 'stay' ? 'stay active' : 'stay'} onClick={() => handleClick('stay') }>
-                  <a href='#'>숙소</a>
+                  <Link to='/'>숙소</Link>
                 </li>
                 <li className={ menuActive === 'experience' ? 'experience active' : 'experience' } onClick={()=> handleClick('experience') }>
-                  <a href='#'>체험</a>
+                  {/* <a href='#'>체험</a> */}
+                  <Link to='/experience'>체험</Link>
                 </li>
                 <li className='online_experience'>
-                  <a href='#'>온라인 체험</a>
+                   <Link to='/'>온라인 체험</Link>
                 </li>
               </ul>
             </div>
