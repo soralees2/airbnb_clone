@@ -9,11 +9,14 @@ import Main from './pages/Main';
 
 function App() {
   return (
-    <div className='App'>
+    <>
       <Header />
-      <Container />
+      <Routes>
+        <Route path='/' element={<Main />}></Route>
+        <Route path='/experience' element={<Experience />}></Route>
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -6,13 +6,12 @@ import Experience from './Experience';
 
 const Container = () => {
   return (
-    <div className='contents'>
-      {/* <Main /> */}
-        <Routes>
-          <Route path='/' element={<Main />}></Route>
-          <Route path='/experience' element={<Experience />}></Route>
-        </Routes>
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Main />}></Route>
+        <Route path='/experience' element={<Experience />}></Route>
+      </Routes>
+    </>
   )
 }
 
